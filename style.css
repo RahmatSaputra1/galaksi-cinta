@@ -1,0 +1,133 @@
+:root {
+  color-scheme: dark;
+  --bg: #050005;
+  --card: #1a0510;
+  --line: #ff2d6f55;
+  --text: #ffe3ec;
+  --muted: #e9a6bd;
+  --accent: #ff3d7f;
+  box-sizing: border-box;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+  scroll-padding-top: env(safe-area-inset-top, 0px);
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Georgia, serif;
+  overflow: hidden;
+  touch-action: none;
+}
+
+canvas {
+  display: block;
+  position: fixed;
+  inset: 0;
+}
+
+.layer {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  transition: opacity .8s;
+  z-index: 2;
+}
+
+.layer.off {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.card {
+  width: min(340px, 100%);
+  text-align: center;
+  background: linear-gradient(160deg, #2a0a1a, var(--card));
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  padding: 30px 24px;
+  box-shadow: 0 0 60px #ff2d6f33;
+}
+
+h1, h2 {
+  font-family: "Playfair Display", Georgia, serif;
+  margin: 0 0 10px;
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: 1.9rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+.sub {
+  font-size: .8rem;
+  letter-spacing: .12em;
+  color: var(--muted);
+  margin: 16px 0 22px;
+}
+
+p {
+  color: var(--muted);
+  font-size: .95rem;
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.art {
+  height: 150px;
+  border-radius: 14px;
+  margin-bottom: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 64px;
+  background: radial-gradient(circle, #ff3d7f55, #1a0510 70%);
+  border: 1px solid var(--line);
+}
+
+button {
+  font: inherit;
+  font-size: .85rem;
+  color: #fff;
+  background: linear-gradient(90deg, #ff3d7f, #c2185b);
+  border: 0;
+  border-radius: 999px;
+  padding: 12px 24px;
+  cursor: pointer;
+}
+
+button:focus-visible {
+  outline: 3px solid #ffd1e0;
+  outline-offset: 3px;
+}
+
+#hint {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+  text-align: center;
+  font-size: .8rem;
+  color: var(--muted);
+  z-index: 1;
+  pointer-events: none;
+  transition: opacity .6s;
+  opacity: 0;
+}
